@@ -1,5 +1,5 @@
-define(['underscore', 'backbone', 'require'],
-    function(_, Backbone, require) {
+define(['underscore', 'backbone', 'require', 'templates'],
+    function(_, Backbone, require, templates) {
   var View = Backbone.View.extend({
     templateName: '',
     modelBindings: {},
@@ -27,7 +27,6 @@ define(['underscore', 'backbone', 'require'],
     },
     render: function() {
       if (this.templateName) {
-        var tempaltes = require('templates');
         var template = templates[this.templateName];
         var data = this.model ? this.model.toJSON() : {};
         this.$el.html(template(data));
