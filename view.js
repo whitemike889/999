@@ -28,10 +28,13 @@ define(['underscore', 'backbone', 'require', 'templates'],
     render: function() {
       if (this.templateName) {
         var template = templates[this.templateName];
-        var data = this.model ? this.model.toJSON() : {};
+        var data = this.getTemplateData();
         this.$el.html(template(data));
       }
       return this;
+    },
+    getTemplateData: function() {
+      return this.model ? this.model.toJSON() : {};
     }
   });
 
